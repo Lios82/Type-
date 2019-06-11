@@ -1,0 +1,118 @@
+﻿<Page
+    x:Class="Type_শিখি.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Type_শিখি"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <RelativePanel>
+            <Button Name="HamburgerButton" 
+                    RelativePanel.AlignLeftWithPanel="True"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="26" 
+                    Width="48"
+                    Content="&#xE700;"
+                    Background="Black"
+                    Foreground="AliceBlue"
+                    Click="HamburgerButton_Click" />
+
+            <TextBlock Name="TitleTextBlock"
+                       FontSize="20"
+                       RelativePanel.RightOf="HamburgerButton"
+                       FontWeight="Bold"
+                       Margin="20,5,0,0"/>
+        </RelativePanel>
+
+        <SplitView Grid.Row="1" 
+                   Name="MySplitView"
+                   DisplayMode="CompactOverlay" 
+                   OpenPaneLength="200"                   
+                   CompactPaneLength="48">
+
+            <SplitView.Pane>
+                <RelativePanel Background="Black">
+                    <ListBox SelectionMode="Single" 
+                         SelectionChanged="ListBox_SelectionChanged"
+                         Background="Black"
+                         Foreground="AliceBlue"
+                         >
+
+                        <ListBoxItem Name="Home">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="23" Text="&#xE80F;" />
+                                <TextBlock FontSize="19" Margin="20,0,0,0">Home</TextBlock>
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem Name="Tutorial">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="23" Text="&#xE786;" />
+                                <TextBlock FontSize="19" Margin="20,0,0,0">Tutorial</TextBlock>
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem Name="Practice">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="23" Text="&#xF45E;" />
+                                <TextBlock FontSize="19" Margin="20,0,0,0">Practice</TextBlock>
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem Name="Progress">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="23" Text="&#xEADF;" />
+                                <TextBlock FontSize="19" Margin="20,0,0,0">Progress</TextBlock>
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem Name="ReviewUs">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="23" Text="&#xE1CE;" />
+                                <TextBlock FontSize="19" Margin="20,0,0,0">Review Us</TextBlock>
+                            </StackPanel>
+                        </ListBoxItem>
+                    </ListBox>
+
+                    <ListBox SelectionMode="Single" 
+                         SelectionChanged="ListBox_SelectionChanged"
+                         Background="Black"
+                         Foreground="AliceBlue"
+                         RelativePanel.AlignBottomWithPanel="True">
+                        
+                        <ListBoxItem>
+                            <Rectangle Name="DividerLine" Fill="Gray" Height="1" Width="48" Margin="-10,0,0,0"/>
+                        </ListBoxItem>
+
+                        <ListBoxItem Name="About">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="23" Text="&#xE783;" />
+                                <TextBlock FontSize="19" Margin="20,0,0,0">About Us</TextBlock>
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem Name="Exit">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="23" Text="&#xE7E8;" Foreground="Red" />
+                                <TextBlock FontSize="19" Margin="20,0,0,0">Exit</TextBlock>
+                            </StackPanel>
+                        </ListBoxItem>
+                    </ListBox>
+                </RelativePanel>
+            </SplitView.Pane>
+
+            <SplitView.Content>
+                <Frame Name="PagesFrame"></Frame>
+            </SplitView.Content>
+
+        </SplitView>
+    </Grid>
+</Page>
